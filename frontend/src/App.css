@@ -213,3 +213,122 @@ body {
     font-size: 2rem;
   }
 }
+
+/* Virtual Keyboard - Endast synlig på mobil */
+.virtual-keyboard {
+  display: none; /* Dölj som standard */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.keyboard-key {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-width: 40px;
+  text-align: center;
+}
+
+.keyboard-key:hover {
+  background: #f0f0f0;
+  transform: translateY(-1px);
+}
+
+.keyboard-key:active {
+  background: #e0e0e0;
+  transform: translateY(0);
+}
+
+.keyboard-key.space {
+  flex: 1;
+  max-width: 200px;
+}
+
+.keyboard-key.backspace {
+  background: #ff6b6b;
+  color: white;
+  border-color: #ff5252;
+}
+
+.keyboard-key.backspace:hover {
+  background: #ff5252;
+}
+
+/* Visa tangentbord endast på mobil (max 768px) */
+@media (max-width: 768px) {
+  .virtual-keyboard {
+    display: block;
+  }
+}
+
+/* Dölj tangentbord på större skärmar */
+@media (min-width: 769px) {
+  .virtual-keyboard {
+    display: none !important;
+  }
+}
+
+/* Search container */
+.search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Keyboard toggle button - endast synlig på mobil */
+.keyboard-toggle {
+  display: none;
+  padding: 8px 16px;
+  background: #74b9ff;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: center;
+}
+
+.keyboard-toggle:hover {
+  background: #0984e3;
+}
+
+/* Visa keyboard-toggle endast på mobil */
+@media (max-width: 768px) {
+  .keyboard-toggle {
+    display: block;
+  }
+  
+  .search-bar {
+    flex-direction: column;
+  }
+}
+
+/* Dölj keyboard-toggle på större skärmar */
+@media (min-width: 769px) {
+  .keyboard-toggle {
+    display: none !important;
+  }
+}

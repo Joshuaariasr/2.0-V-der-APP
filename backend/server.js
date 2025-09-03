@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 5001;
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:3000', // Tillåt frontend att anropa API:et
+  origin: ['http://localhost:3000', 'http://localhost:3001'], // Tillåt båda portarna
   credentials: true
 }));
 app.use(express.json());
@@ -68,5 +68,5 @@ app.listen(PORT, () => {
   console.log(`🌤️  Väder API server körs på port ${PORT}`);
   console.log(`📡 Health check: http://localhost:${PORT}/api/health`);
   console.log(`🌍 Väder API: http://localhost:${PORT}/api/weather/Stockholm`);
-  console.log(`🔗 CORS aktiverat för: http://localhost:3000`);
+  console.log(`🔗 CORS aktiverat för: http://localhost:3000 och http://localhost:3001`);
 });
